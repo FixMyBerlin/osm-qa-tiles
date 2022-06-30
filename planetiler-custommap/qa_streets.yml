@@ -1,0 +1,30 @@
+schema_name: QA-Tiles
+schema_description: street quality and more
+attribution: <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy;
+  OpenStreetMap contributors</a>
+sources:
+  osm:
+    type: osm
+    url: geofabrik:germany
+tag_mappings:
+  bridge: boolean
+  layer: long
+layers:
+- name: streets
+  features:
+  - sources:
+    - osm
+    geometry: line
+    min_zoom: 8
+    include_when:
+      highway:
+    attributes:
+    - key: highway
+    - key: smoothness
+    - key: surface
+    - key: bridge
+    - key: cycleway:right:surface
+    - key: cycleway:left:surface
+    - key: cycleway:surface
+
+
